@@ -1,0 +1,70 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="totalBill">Total Bill</label>
+        <input type="text" onkeyup="calculation()" id="totalBill"> <br>
+
+        <label for="tip">Tip</label>
+        <input type="text" onkeyup="calculation()" id="tip"> <br>
+
+
+        <span>Person</span>
+        <input id="plus" type="button" value="+">
+        <span id="personNumber"></span>
+        <input id="minus" type="button" value="-">
+
+        <h2>Per Person Total</h2>
+        <h3 id="output"></h3>
+    </form>
+
+    <script>
+        
+        let plus = document.getElementById("plus");
+        let totalPersonNumber = 1
+        let personNumber = document.getElementById("personNumber");
+            personNumber.innerText = totalPersonNumber;
+        let minus = document.getElementById("minus");
+        let totalBill = document.getElementById("totalBill");
+        let tip = document.getElementById("tip");
+        let output = document.getElementById("output");
+
+        function calculation(){
+            let bill = Number(totalBill.value);
+            let tipAmount = Number(tip.value) / 100;
+            let tipPercentage = bill * tipAmount;
+            let billAmount = bill + tipPercentage;
+            let totalBillAmount = billAmount / totalPersonNumber
+            output.innerHTML = totalBillAmount;
+        }
+
+        plus.addEventListener("click", ()=>{
+            totalPersonNumber++;
+            personNumber.innerText = totalPersonNumber;
+            calculation()
+        })
+
+        minus.addEventListener("click", ()=>{
+            if(totalPersonNumber <= 1){
+                return;
+            }
+            totalPersonNumber--;
+            personNumber.innerText = totalPersonNumber;
+            calculation()
+        })
+
+
+      
+
+
+    </script>
+</body>
+
+</html>

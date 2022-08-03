@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Frequency</title>
+
+    <style>
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            text-align: center;
+            border: 1px solid #000000;
+            padding: 30px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h3 id="demo"></h3>
+
+        <button onclick="refreshPage()">Refresh Page</button>
+    </div>
+
+
+
+
+    <script>
+        let demo = document.getElementById("demo")
+
+        let wordFrequency = (word) => {
+            let dobulWord = {}
+            let wordArrayConvert = word.split(" ")
+            for (j of wordArrayConvert) {
+
+                if (j in dobulWord) {
+                    dobulWord[j] = dobulWord[j] + 1;
+                } else {
+                    dobulWord[j] = 1
+                }
+
+            }
+            //return dobulWord
+            return demo.innerHTML = JSON.stringify({dobulWord})
+        }
+
+        let word = prompt("Write a sentence and get the count of the Word");;
+
+        console.log(wordFrequency(word));
+
+        function refreshPage() {
+            window.location.reload();
+        }
+    </script>
+</body>
+
+</html>

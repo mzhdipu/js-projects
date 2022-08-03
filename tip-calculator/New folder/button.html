@@ -1,0 +1,40 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Increment and Decrement Number</title>
+</head>
+
+<body>
+
+    <button id="plus">+</button>
+    <span id="numbers"></span>
+    <button id="minus">-</button>
+
+    <script>
+        let data = 1;
+        let plus = document.getElementById("plus");
+        let numbers = document.getElementById("numbers")
+        numbers.innerText = data;
+        let minus = document.getElementById("minus");
+
+        plus.addEventListener("click", function () {
+            data++;
+            numbers.innerText = data;
+        })
+
+        minus.addEventListener("click", function () {
+
+            if (data <= 1) {
+                return
+            }
+
+            data--;
+            numbers.innerText = data
+        })
+    </script>
+</body>
+
+</html>

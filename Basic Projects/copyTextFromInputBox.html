@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy Text From Input Box</title>
+</head>
+<body>
+    <input type="text" class="inputBox">
+    <input type="button" value="Copy Text" class="copy-text">
+
+    <script>
+        let inputBox = document.querySelector(".inputBox");
+        let copyTextBTN = document.querySelector(".copy-text");
+
+        copyTextBTN.onclick = () => {
+            inputBox.select();
+            let textCopy = inputBox.value
+            navigator.clipboard.writeText(textCopy)
+        }
+    </script>
+</body>
+</html>

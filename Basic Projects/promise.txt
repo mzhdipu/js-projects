@@ -1,0 +1,10 @@
+let promise01 = new Promise(function(reslove, reject){
+    setTimeout(function(){
+        isReady = [true, false] [Math.floor(Math.random() * 2)];
+        isReady ? reslove ("Sour is Ready") : reject ("No Soup Today");
+    }, 2000)
+})
+
+promise01
+    .then(function(success){console.log({success})})
+    .catch(function(error){console.log({error})})
